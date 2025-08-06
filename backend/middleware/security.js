@@ -6,22 +6,37 @@ const hpp = require('hpp');
 const express = require('express');
 
 function applySecurity(app) {
-  // Trust proxy when deployed behind Render’s proxy
+  // Trust proxy (important for rate limiters, etc., on Render)
   app.set('trust proxy', 1);
 
-  // Secure HTTP headers
-  app.use(helmet());
+  // Custom Content Security Policy for Stripe
+  app.use(
+    helmet({
+      contentSecurityPolicy: {
+        directives: {
+          defaultSrc: ["'self'"],
+          scriptSrc: ["'self'", "https://js.stripe.com"],
+          frameSrc: ["'self'", "https://js.stripe.com"],
+          connectSrc: ["'self'", "https://api.stripe.com"],
+          imgSrc: ["'self'", "data:", "https://*.stripe.com"],
+          styleSrc: ["'self'", "'unsafe-inline'"],
+          objectSrc: ["'none'"],
+          baseUri: ["'self'"],
+        },
+      },
+    })
+  );
 
-  // Enable CORS (open for now since you're deploying on Render)
+  // Enable CORS (safe for now on Render)
   app.use(cors());
 
-  // Limit body size to prevent payload abuse
+  // Limit request body size
   app.use(express.json({ limit: '10kb' }));
 
   // Prevent HTTP parameter pollution
   app.use(hpp());
 
-  // Input sanitization for body, params, and query
+  // Input sanitization
   app.use((req, res, next) => {
     const sanitizeObject = (obj) => {
       if (obj && typeof obj === 'object') {
@@ -38,10 +53,10 @@ function applySecurity(app) {
     next();
   });
 
-  // Apply rate limiting to all /api routes
+  // Rate limiter for API
   const limiter = rateLimit({
-    windowMs: 15 * 60 * 1000, // 15 minutes
-    max: 100, // max requests per IP
+    windowMs: 15 * 60 * 1000, // 15 mins
+    max: 100,
     message: 'Too many requests, please try again later.',
     standardHeaders: true,
     legacyHeaders: false,
