@@ -1,0 +1,77 @@
+{
+  "headline": [
+    "Engage.",
+    "Complete.",
+    "Win."
+  ],
+  "subtext": "Welcome to Actyme — a next-gen platform where you complete tasks, earn rewards, and win periodic prizes.",
+  "nav1": "How it Works",
+  "nav2": "Rewards",
+  "nav3": "FAQ",
+  "btn1": "Redirecting...",
+  "btn2": "Pay $5 and Apply for Pilot",
+  "howItWorks": {
+    "title": "How It Works",
+    "steps": [
+      {
+        "title": "1. Complete Tasks",
+        "description": "Join challenges, share content, or engage with partners."
+      },
+      {
+        "title": "2. Earn Entries",
+        "description": "Each task gives you tickets for the prize draw."
+      },
+      {
+        "title": "3. Win Rewards",
+        "description": "Winners are selected every month. More entries = higher chance."
+      }
+    ]
+  },
+  "rewards": {
+    "title": "What You Can Win",
+    "items": [
+      {
+        "title": "Cash Prizes",
+        "description": "Monthly cash rewards directly to your account."
+      },
+      {
+        "title": "Gift Cards",
+        "description": "Amazon, Flipkart, and more."
+      },
+      {
+        "title": "Gadgets",
+        "description": "Phones, speakers, and smartwatches."
+      }
+    ]
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "items": [
+      {
+        "question": "Is this really free?",
+        "answer": "Yes! You only pay $5 to enter the pilot — all future tasks are free to participate in."
+      },
+      {
+        "question": "How are winners selected?",
+        "answer": "Entries are randomized and picked using secure algorithms. More entries increase your chances."
+      },
+      {
+        "question": "When do prize draws happen?",
+        "answer": "Every month. Winners are notified by email."
+      }
+    ]
+  },
+  "footer": {
+    "copyright": "All rights reserved."
+  },
+  "cancel": {
+    "title": "Payment Canceled",
+    "message": "No worries! You can try again anytime.",
+    "back": "Back to Home"
+  },
+  "success": {
+    "title": "Payment Successful!",
+    "message": "You're now enrolled in the Actyme Pilot Program 🎉",
+    "back": "Back to Home"
+  }
+}
