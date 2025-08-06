@@ -6,6 +6,12 @@ This is a **MERN stack application** with internationalization (i18n), Stripe in
 
 ---
 
+## 🔗 Live Demo
+
+🚀 **[View Actyme on Render](https://actyme.onrender.com/)**
+
+---
+
 ## 🚀 Tech Stack
 
 - **Frontend:** React.js, Vite, Tailwind CSS, React Router, i18next
